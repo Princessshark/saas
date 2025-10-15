@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechForge - Professional SaaS Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        // Configuration for AI-driven development
+        const BUSINESS_CONFIG = {
+            name: "TechForge",
+            logo: "⚡",
+            tagline: "Professional SaaS Solutions & Services"
+        };
+
+        const TEXT_CONTENT = {
+            appTitle: "TechForge - Professional SaaS Services",
+            heroTitle: "Transform Your Business with Expert SaaS Solutions",
+            heroSubtitle: "Connect with top-tier professionals offering cutting-edge web development, database management, cloud solutions, and more.",
+            footerText: "© 2024 TechForge. Empowering businesses through innovative SaaS solutions."
+        };
+
+        const COLOR_PALETTES = {
+            dark: {
+                primary: '#DC2626',        // Red buttons
+                secondary: '#7C2D12',      // Dark red accent
+                accent: '#1F2937',         // Dark grey surface
+                text: '#FFFFFF',           // White text
+                textSecondary: '#000000',  // Black text for contrast
+                background: '#000000',     // Black background
+                surface: '#111827'         // Dark surface
+            },
+            light: {
+                primary: '#EF4444',        // Bright red
+                secondary: '#DC2626',      // Medium red
+                accent: '#FEF2F2',         // Light red tint
+                text: '#1F2937',           // Dark grey text
+                textSecondary: '#374151',  // Medium grey text
+                background: '#FFFFFF',     // White background
+                surface: '#F9FAFB'         // Light grey surface
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #DC2626;
+            --secondary: #7C2D12;
+            --accent: #1F2937;
+            --text: #FFFFFF;
+            --text-secondary: #000000;
+            --background: #000000;
+            --surface: #111827;
+        }
+
+        [data-theme="light"] {
+            --primary: #EF4444;
+            --secondary: #DC2626;
+            --accent: #FEF2F2;
+            --text: #1F2937;
+            --text-secondary: #374151;
+            --background: #FFFFFF;
+            --surface: #F9FAFB;
+        }
+
+        .theme-bg { background-color: var(--background); }
+        .theme-surface { background-color: var(--surface); }
+        .theme-text { color: var(--text); }
+        .theme-text-secondary { color: var(--text-secondary); }
+        .theme-primary { color: var(--primary); }
+        .theme-secondary { color: var(--secondary); }
+        .theme-accent { background-color: var(--accent); }
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+            border-color: var(--primary);
+        }
+
+        [data-theme="light"] .service-card {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .service-card:hover {
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+            background-color: var(--secondary);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--background) 0%, var(--surface) 50%, var(--accent) 100%);
+        }
+
+        .pricing-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="theme-bg theme-text min-h-full">
+    
+    <div id="root" class="min-h-full">
+        <!-- Content will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Data arrays for dynamic content generation
+        const SERVICES_DATA = [
+            {
+                id: 1,
+                title: "Custom Web Development",
+                provider: "WebCraft Studios",
+                rating: 4.9,
+                reviews: 127,
+                price: 2500,
+                duration: "2-4 weeks",
+                icon: "🌐",
+                category: "Development",
+                description: "Full-stack web applications with modern frameworks like React, Vue, and Node.js",
+                features: ["Responsive Design", "API Integration", "Database Setup", "SEO Optimization"],
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Database Management & Optimization",
+                provider: "DataFlow Solutions",
+                rating: 4.8,
+                reviews: 89,
+                price: 1800,
+                duration: "1-2 weeks",
+                icon: "🗄️",
+                category: "Database",
+                description: "Professional database design, optimization, and migration services",
+                features: ["Performance Tuning", "Data Migration", "Backup Solutions", "Security Audit"],
+                featured: false
+            },
+            {
+                id: 3,
+                title: "Cloud Infrastructure Setup",
+                provider: "CloudMaster Pro",
+                rating: 4.9,
+                reviews: 156,
+                price: 3200,
+                duration: "1-3 weeks",
+                icon: "☁️",
+                category: "Infrastructure",
+                description: "Complete cloud infrastructure deployment on AWS, Azure, or Google Cloud",
+                features: ["Auto-scaling", "Load Balancing", "Monitoring", "Cost Optimization"],
+                featured: true
+            },
+            {
+                id: 4,
+                title: "Mobile App Development",
+                provider: "MobileTech Innovations",
+                rating: 4.7,
+                reviews: 203,
+                price: 4500,
+                duration: "4-8 weeks",
+                icon: "📱",
+                category: "Mobile",
+                description: "Native and cross-platform mobile applications for iOS and Android",
+                features: ["Cross-platform", "Push Notifications", "Offline Support", "App Store Deployment"],
+                featured: false
+            },
+            {
+                id: 5,
+                title: "AI & Machine Learning Solutions",
+                provider: "AI Dynamics Lab",
+                rating: 4.9,
+                reviews: 74,
+                price: 5500,
+                duration: "3-6 weeks",
+                icon: "🤖",
+                category: "AI/ML",
+                description: "Custom AI models, chatbots, and machine learning implementations",
+                features: ["Custom Models", "Data Analysis", "Predictive Analytics", "Integration Support"],
+                featured: true
+            },
+            {
+                id: 6,
+                title: "DevOps & CI/CD Pipeline",
+                provider: "DevOps Masters",
+                rating: 4.8,
+                reviews: 112,
+                price: 2200,
+                duration: "1-2 weeks",
+                icon: "🔧",
+                category: "DevOps",
+                description: "Automated deployment pipelines and infrastructure as code solutions",
+                features: ["Automated Testing", "Deployment Automation", "Monitoring Setup", "Documentation"],
+                featured: false
+            }
+        ];
+
+        const SITE_CONTENT = {
+            navigation: [
+                { name: "Services", href: "#services", active: true },
+                { name: "How It Works", href: "#how-it-works", active: false },
+                { name: "Pricing", href: "#pricing", active: false },
+                { name: "About", href: "#about", active: false },
+                { name: "Contact", href: "#contact", active: false }
+            ],
+            categories: [
+                { name: "All Services", value: "all", active: true },
+                { name: "Development", value: "development", active: false },
+                { name: "Database", value: "database", active: false },
+                { name: "Infrastructure", value: "infrastructure", active: false },
+                { name: "Mobile", value: "mobile", active: false },
+                { name: "AI/ML", value: "ai/ml", active: false },
+                { name: "DevOps", value: "devops", active: false }
+            ],
+            howItWorks: [
+                { step: 1, title: "Browse Services", description: "Explore our curated marketplace of professional SaaS services", icon: "🔍" },
+                { step: 2, title: "Connect with Experts", description: "Get matched with verified professionals who fit your needs", icon: "🤝" },
+                { step: 3, title: "Start Your Project", description: "Begin working with your chosen expert on your custom solution", icon: "🚀" }
+            ]
+        };
+
+        // Dynamic content generation functions
+        function generateHeader() {
+            return `
+                <header class="theme-surface shadow-lg sticky top-0 z-50 border-b border-red-600/20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between items-center h-16">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">${BUSINESS_CONFIG.logo}</span>
+                                <div>
+                                    <h1 class="text-2xl font-bold theme-primary">${BUSINESS_CONFIG.name}</h1>
+                                    <p class="text-xs theme-text opacity-70">${BUSINESS_CONFIG.tagline}</p>
+                                </div>
+                            </div>
+                            
+                            <nav class="hidden md:flex space-x-8">
+                                ${SITE_CONTENT.navigation.map(item => `
+                                    <a href="${item.href}" class="theme-text hover:theme-primary transition-colors duration-200 ${item.active ? 'theme-primary font-semibold' : ''}" data-nav="${item.name.toLowerCase().replace(/\s+/g, '-')}">
+                                        ${item.name}
+                                    </a>
+                                `).join('')}
+                            </nav>
+                            
+                            <div class="flex items-center space-x-4">
+                                <button id="themeToggle" class="p-2 rounded-lg theme-accent hover:opacity-80 transition-opacity border border-red-600/30" data-action="toggle-theme">
+                                    <span id="themeIcon">🌙</span>
+                                </button>
+                                <button class="btn-primary px-6 py-2 rounded-lg text-white font-semibold" data-action="get-started">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            `;
+        }
+
+        function generateHeroSection() {
+            return `
+                <section class="hero-gradient py-20 px-4 border-b border-red-600/20" data-section="hero">
+                    <div class="max-w-6xl mx-auto text-center">
+                        <h2 class="text-5xl md:text-6xl font-bold theme-text mb-6" data-content="hero-title">
+                            ${TEXT_CONTENT.heroTitle}
+                        </h2>
+                        <p class="text-xl theme-text opacity-80 mb-8 max-w-3xl mx-auto" data-content="hero-subtitle">
+                            ${TEXT_CONTENT.heroSubtitle}
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                            <button class="btn-primary px-8 py-4 rounded-lg text-white font-semibold text-lg" data-action="browse-services">
+                                Browse Services
+                            </button>
+                            <button class="border-2 border-red-600 theme-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-600 hover:text-white transition-all duration-300" data-action="become-provider">
+                                Become a Provider
+                            </button>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold theme-primary mb-2">500+</div>
+                                <div class="theme-text opacity-70">Expert Providers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold theme-primary mb-2">2,000+</div>
+                                <div class="theme-text opacity-70">Projects Completed</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold theme-primary mb-2">4.8★</div>
+                                <div class="theme-text opacity-70">Average Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function generateCategoryFilter() {
+            return `
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        ${SITE_CONTENT.categories.map(category => `
+                            <button class="px-4 py-2 rounded-full border transition-all duration-200 ${category.active ? 'btn-primary text-white border-red-600' : 'theme-surface theme-text border-red-600/30 hover:border-red-600'}" 
+                                    data-action="filter-category" data-category="${category.value}">
+                                ${category.name}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateServicesSection() {
+            const featuredServices = SERVICES_DATA.filter(service => service.featured);
+            const regularServices = SERVICES_DATA.filter(service => !service.featured);
+            
+            return `
+                <section class="py-16 px-4 theme-bg" data-section="services" id="services">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-bold theme-text mb-4" data-content="services-title">Featured Services</h2>
+                            <p class="text-lg theme-text opacity-80" data-content="services-subtitle">Top-rated professional services from verified experts</p>
+                        </div>
+                        
+                        ${generateCategoryFilter()}
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="featured-services">
+                            ${featuredServices.map(service => generateServiceCard(service, true)).join('')}
+                        </div>
+                        
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold theme-text mb-4">All Services</h3>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-services">
+                            ${regularServices.map(service => generateServiceCard(service, false)).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function generateServiceCard(service, featured = false) {
+            return `
+                <div class="service-card theme-surface rounded-lg overflow-hidden shadow-lg ${featured ? 'ring-2 ring-red-600' : ''}" 
+                     data-service-id="${service.id}" data-category="${service.category.toLowerCase()}">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="text-4xl">${service.icon}</div>
+                            ${featured ? '<div class="pricing-badge text-white text-xs px-2 py-1 rounded-full">FEATURED</div>' : ''}
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold theme-text mb-2" data-service="title">${service.title}</h3>
+                        <p class="theme-text opacity-70 text-sm mb-3" data-service="provider">by ${service.provider}</p>
+                        <p class="theme-text opacity-80 mb-4 text-sm" data-service="description">${service.description}</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center space-x-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="theme-text font-semibold">${service.rating}</span>
+                                <span class="theme-text opacity-60 text-sm">(${service.reviews} reviews)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-4">
+                            ${service.features.slice(0, 3).map(feature => `
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-red-600">✓</span>
+                                    <span class="theme-text text-sm">${feature}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <div class="text-2xl font-bold theme-primary" data-service="price">$${service.price.toLocaleString()}</div>
+                                <div class="theme-text opacity-60 text-sm" data-service="duration">${service.duration}</div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold theme-accent theme-text border border-red-600/30" data-service="category">${service.category}</span>
+                        </div>
+                        
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold hover:shadow-lg transition-all duration-300" 
+                                data-action="inquire" data-service-id="${service.id}">
+                            Inquire Now
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateHowItWorksSection() {
+            return `
+                <section class="py-16 px-4 theme-surface border-t border-red-600/20" data-section="how-it-works" id="how-it-works">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-bold theme-text mb-4">How It Works</h2>
+                            <p class="text-lg theme-text opacity-80">Get started with professional SaaS services in three simple steps</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-8">
+                            ${SITE_CONTENT.howItWorks.map(step => `
+                                <div class="text-center p-6 rounded-lg theme-bg border border-red-600/20 hover:border-red-600/50 transition-colors duration-300" data-step="${step.step}">
+                                    <div class="text-5xl mb-4">${step.icon}</div>
+                                    <div class="text-2xl font-bold theme-primary mb-2">Step ${step.step}</div>
+                                    <h3 class="text-xl font-semibold theme-text mb-3">${step.title}</h3>
+                                    <p class="theme-text opacity-80">${step.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function generateFooter() {
+            return `
+                <footer class="theme-surface py-12 px-4 border-t border-red-600/20" data-section="footer">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid md:grid-cols-4 gap-8 mb-8">
+                            <div>
+                                <div class="flex items-center space-x-3 mb-4">
+                                    <span class="text-2xl">${BUSINESS_CONFIG.logo}</span>
+                                    <h3 class="text-xl font-bold theme-primary">${BUSINESS_CONFIG.name}</h3>
+                                </div>
+                                <p class="theme-text opacity-80 text-sm mb-4">${BUSINESS_CONFIG.tagline}</p>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-2xl hover:opacity-80 transition-opacity" data-social="linkedin">💼</a>
+                                    <a href="#" class="text-2xl hover:opacity-80 transition-opacity" data-social="twitter">🐦</a>
+                                    <a href="#" class="text-2xl hover:opacity-80 transition-opacity" data-social="github">🐙</a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold theme-text mb-4">Services</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="web-dev">Web Development</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="database">Database Management</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="cloud">Cloud Infrastructure</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="mobile">Mobile Development</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold theme-text mb-4">Company</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="about">About Us</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="careers">Careers</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="blog">Blog</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold theme-text mb-4">Support</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="help">Help Center</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="terms">Terms of Service</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="privacy">Privacy Policy</a></li>
+                                    <li><a href="#" class="theme-text opacity-80 hover:theme-primary transition-colors" data-link="security">Security</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-red-600/20 pt-8 text-center">
+                            <p class="theme-text opacity-80 text-sm" data-content="footer-text">${TEXT_CONTENT.footerText}</p>
+                        </div>
+                    </div>
+                </footer>
+            `;
+        }
+
+        // Theme management
+        function initializeTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            function updateTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+                
+                // Update CSS variables
+                const palette = COLOR_PALETTES[currentTheme];
+                const root = document.documentElement;
+                root.style.setProperty('--primary', palette.primary);
+                root.style.setProperty('--secondary', palette.secondary);
+                root.style.setProperty('--accent', palette.accent);
+                root.style.setProperty('--text', palette.text);
+                root.style.setProperty('--text-secondary', palette.textSecondary);
+                root.style.setProperty('--background', palette.background);
+                root.style.setProperty('--surface', palette.surface);
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                updateTheme();
+            });
+            
+            updateTheme();
+        }
+
+        // Service inquiry functionality
+        function handleInquiry(serviceId) {
+            const service = SERVICES_DATA.find(s => s.id === parseInt(serviceId));
+            if (service) {
+                // Create inquiry modal content
+                const modalContent = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" id="inquiryModal">
+                        <div class="theme-surface rounded-lg p-8 max-w-md w-full mx-4 border border-red-600/30">
+                            <div class="text-center mb-6">
+                                <div class="text-4xl mb-2">${service.icon}</div>
+                                <h3 class="text-2xl font-bold theme-text mb-2">${service.title}</h3>
+                                <p class="theme-text opacity-70">by ${service.provider}</p>
+                            </div>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div>
+                                    <label class="block theme-text font-semibold mb-2">Your Name</label>
+                                    <input type="text" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label class="block theme-text font-semibold mb-2">Email</label>
+                                    <input type="email" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your email">
+                                </div>
+                                <div>
+                                    <label class="block theme-text font-semibold mb-2">Project Details</label>
+                                    <textarea class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none h-24" placeholder="Describe your project requirements..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <button class="btn-primary flex-1 py-3 rounded-lg text-white font-semibold" data-action="submit-inquiry">
+                                    Send Inquiry
+                                </button>
+                                <button class="border border-red-600/30 theme-text flex-1 py-3 rounded-lg font-semibold hover:border-red-600 transition-colors" data-action="close-modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalContent);
+            }
+        }
+
+        // Category filtering
+        function filterServices(category) {
+            const serviceCards = document.querySelectorAll('.service-card');
+            const categoryButtons = document.querySelectorAll('[data-action="filter-category"]');
+            
+            // Update active button
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('btn-primary', 'text-white', 'border-red-600');
+                btn.classList.add('theme-surface', 'theme-text', 'border-red-600/30');
+            });
+            
+            const activeButton = document.querySelector(`[data-category="${category}"]`);
+            activeButton.classList.remove('theme-surface', 'theme-text', 'border-red-600/30');
+            activeButton.classList.add('btn-primary', 'text-white', 'border-red-600');
+            
+            // Filter services
+            serviceCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category').toLowerCase();
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Event delegation for dynamic content
+        function setupEventListeners() {
+            document.addEventListener('click', (e) => {
+                const action = e.target.getAttribute('data-action');
+                
+                switch(action) {
+                    case 'inquire':
+                        e.preventDefault();
+                        const serviceId = e.target.getAttribute('data-service-id');
+                        handleInquiry(serviceId);
+                        break;
+                    case 'browse-services':
+                        e.preventDefault();
+                        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    case 'become-provider':
+                        e.preventDefault();
+                        showInlineMessage('Provider registration coming soon! Join our waitlist.', 'info');
+                        break;
+                    case 'get-started':
+                        e.preventDefault();
+                        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    case 'filter-category':
+                        e.preventDefault();
+                        const category = e.target.getAttribute('data-category');
+                        filterServices(category);
+                        break;
+                    case 'submit-inquiry':
+                        e.preventDefault();
+                        showInlineMessage('Inquiry sent successfully! The provider will contact you within 24 hours.', 'success');
+                        document.getElementById('inquiryModal').remove();
+                        break;
+                    case 'close-modal':
+                        e.preventDefault();
+                        document.getElementById('inquiryModal').remove();
+                        break;
+                }
+            });
+
+            // Close modal when clicking outside
+            document.addEventListener('click', (e) => {
+                if (e.target.id === 'inquiryModal') {
+                    document.getElementById('inquiryModal').remove();
+                }
+            });
+        }
+
+        // Inline message system (instead of alerts)
+        function showInlineMessage(message, type = 'info') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+                type === 'success' ? 'bg-green-600 text-white' : 
+                type === 'error' ? 'bg-red-600 text-white' : 
+                'theme-surface theme-text border border-red-600/30'
+            }`;
+            messageDiv.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span>${message}</span>
+                    <button class="ml-4 text-xl hover:opacity-70" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentElement) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Initialize application
+        function initializeApp() {
+            const root = document.getElementById('root');
+            
+            // Generate all content
+            root.innerHTML = `
+                ${generateHeader()}
+                <main>
+                    ${generateHeroSection()}
+                    ${generateServicesSection()}
+                    ${generateHowItWorksSection()}
+                </main>
+                ${generateFooter()}
+            `;
+            
+            // Initialize features
+            initializeTheme();
+            setupEventListeners();
+        }
+
+        // Start the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ea75e5a2d37a07',t:'MTc2MDQ4MDM5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
