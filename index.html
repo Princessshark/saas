@@ -14,14 +14,14 @@
             logo: "⚡",
             tagline: "Professional SaaS Solutions & Services"
         };
-
+        // --- Text content for dynamic rendering ---
         const TEXT_CONTENT = {
             appTitle: "TechForge - Professional SaaS Services",
             heroTitle: "Transform Your Business with Expert SaaS Solutions",
             heroSubtitle: "Connect with top-tier professionals offering cutting-edge web development, database management, cloud solutions, and more.",
             footerText: "© 2024 TechForge. Empowering businesses through innovative SaaS solutions."
         };
-
+        // --- Theme color palettes ---
         const COLOR_PALETTES = {
             dark: {
                 primary: '#DC2626',        // Red buttons
@@ -45,20 +45,21 @@
     </script>
 
     <style>
+        /* --- Base styles & CSS variables --- */
         body {
             box-sizing: border-box;
         }
-
+        /* Default (dark) theme */
         :root {
             --primary: #DC2626;
-            --secondary: #7C2D12;
+            --secondary: #750712;
             --accent: #1F2937;
             --text: #FFFFFF;
             --text-secondary: #000000;
             --background: #000000;
             --surface: #111827;
         }
-
+        /* Light theme overrides */
         [data-theme="light"] {
             --primary: #EF4444;
             --secondary: #DC2626;
@@ -68,7 +69,7 @@
             --background: #FFFFFF;
             --surface: #F9FAFB;
         }
-
+        /* --- Utility theme classes --- */
         .theme-bg { background-color: var(--background); }
         .theme-surface { background-color: var(--surface); }
         .theme-text { color: var(--text); }
@@ -76,7 +77,7 @@
         .theme-primary { color: var(--primary); }
         .theme-secondary { color: var(--secondary); }
         .theme-accent { background-color: var(--accent); }
-
+        /* --- Service card styles --- */
         .service-card {
             transition: all 0.3s ease;
             transform: translateY(0);
@@ -96,7 +97,7 @@
         [data-theme="light"] .service-card:hover {
             box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
         }
-
+        /* --- Button & hover effects --- */
         .btn-primary {
             background-color: var(--primary);
             transition: all 0.3s ease;
@@ -107,7 +108,7 @@
             box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
             background-color: var(--secondary);
         }
-
+        /* --- Visual enhancements --- */
         .hero-gradient {
             background: linear-gradient(135deg, var(--background) 0%, var(--surface) 50%, var(--accent) 100%);
         }
@@ -139,12 +140,12 @@
                 provider: "WebCraft Studios",
                 rating: 4.9,
                 reviews: 127,
-                price: 2500,
-                duration: "2-4 weeks",
+                price: 18000,
+                duration: "3-6 weeks",
                 icon: "🌐",
                 category: "Development",
-                description: "Full-stack web applications with modern frameworks like React, Vue, and Node.js",
-                features: ["Responsive Design", "API Integration", "Database Setup", "SEO Optimization"],
+                description: "Full-stack device responsive web applications development with prefered tech stack",
+                features: ["Responsive Design", "API Integration", "Database Setup", "SEO Optimization", "Payment Gateway Integration"],
                 featured: true
             },
             {
@@ -153,8 +154,8 @@
                 provider: "DataFlow Solutions",
                 rating: 4.8,
                 reviews: 89,
-                price: 1800,
-                duration: "1-2 weeks",
+                price: 58000,
+                duration: "1-5 weeks",
                 icon: "🗄️",
                 category: "Database",
                 description: "Professional database design, optimization, and migration services",
@@ -167,8 +168,8 @@
                 provider: "CloudMaster Pro",
                 rating: 4.9,
                 reviews: 156,
-                price: 3200,
-                duration: "1-3 weeks",
+                price: 12000,
+                duration: "1-13 weeks",
                 icon: "☁️",
                 category: "Infrastructure",
                 description: "Complete cloud infrastructure deployment on AWS, Azure, or Google Cloud",
@@ -181,8 +182,8 @@
                 provider: "MobileTech Innovations",
                 rating: 4.7,
                 reviews: 203,
-                price: 4500,
-                duration: "4-8 weeks",
+                price: 35000,
+                duration: "4-9 weeks",
                 icon: "📱",
                 category: "Mobile",
                 description: "Native and cross-platform mobile applications for iOS and Android",
@@ -195,12 +196,12 @@
                 provider: "AI Dynamics Lab",
                 rating: 4.9,
                 reviews: 74,
-                price: 5500,
-                duration: "3-6 weeks",
+                price: 550000,
+                duration: "6-12 Months",
                 icon: "🤖",
                 category: "AI/ML",
                 description: "Custom AI models, chatbots, and machine learning implementations",
-                features: ["Custom Models", "Data Analysis", "Predictive Analytics", "Integration Support"],
+                features: ["Custom Models", "Data Labling", "Analytical Dashboard", "Integrated Support"],
                 featured: true
             },
             {
@@ -209,17 +210,18 @@
                 provider: "DevOps Masters",
                 rating: 4.8,
                 reviews: 112,
-                price: 2200,
-                duration: "1-2 weeks",
+                price: 2900,
+                duration: "per day",
                 icon: "🔧",
                 category: "DevOps",
                 description: "Automated deployment pipelines and infrastructure as code solutions",
-                features: ["Automated Testing", "Deployment Automation", "Monitoring Setup", "Documentation"],
+                features: ["Automated Testing", "Deployment Automation", "Monitoring Setup", "Endpoint Backup", "Network Topology"],
                 featured: false
             }
+            
         ];
-
         const SITE_CONTENT = {
+            // Taskbar
             navigation: [
                 { name: "Services", href: "#services", active: true },
                 { name: "How It Works", href: "#how-it-works", active: false },
@@ -227,6 +229,7 @@
                 { name: "About", href: "#about", active: false },
                 { name: "Contact", href: "#contact", active: false }
             ],
+            // Featured Services
             categories: [
                 { name: "All Services", value: "all", active: true },
                 { name: "Development", value: "development", active: false },
@@ -244,6 +247,7 @@
         };
 
         // Dynamic content generation functions
+        // --- Header section generator ---
         function generateHeader() {
             return `
                 <header class="theme-surface shadow-lg sticky top-0 z-50 border-b border-red-600/20">
@@ -278,7 +282,7 @@
                 </header>
             `;
         }
-
+        // --- Hero section generator ---
         function generateHeroSection() {
             return `
                 <section class="hero-gradient py-20 px-4 border-b border-red-600/20" data-section="hero">
@@ -300,15 +304,15 @@
                         
                         <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                             <div class="text-center">
-                                <div class="text-3xl font-bold theme-primary mb-2">500+</div>
+                                <div class="text-3xl font-bold theme-secondary mb-2">500+</div>
                                 <div class="theme-text opacity-70">Expert Providers</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-3xl font-bold theme-primary mb-2">2,000+</div>
+                                <div class="text-3xl font-bold theme-secondary mb-2">2,000+</div>
                                 <div class="theme-text opacity-70">Projects Completed</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-3xl font-bold theme-primary mb-2">4.8★</div>
+                                <div class="text-3xl font-bold theme-secondary mb-2">4.8★</div>
                                 <div class="theme-text opacity-70">Average Rating</div>
                             </div>
                         </div>
@@ -316,7 +320,7 @@
                 </section>
             `;
         }
-
+        // --- Category filter buttons ---
         function generateCategoryFilter() {
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -331,7 +335,7 @@
                 </div>
             `;
         }
-
+        // --- Services section (featured + all) ---
         function generateServicesSection() {
             const featuredServices = SERVICES_DATA.filter(service => service.featured);
             const regularServices = SERVICES_DATA.filter(service => !service.featured);
@@ -361,7 +365,7 @@
                 </section>
             `;
         }
-
+        // --- Individual service card generator ---
         function generateServiceCard(service, featured = false) {
             return `
                 <div class="service-card theme-surface rounded-lg overflow-hidden shadow-lg ${featured ? 'ring-2 ring-red-600' : ''}" 
@@ -395,7 +399,7 @@
                         
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <div class="text-2xl font-bold theme-primary" data-service="price">$${service.price.toLocaleString()}</div>
+                                <div class="text-2xl font-bold theme-primary" data-service="price"> ₹${service.price.toLocaleString()}</div>
                                 <div class="theme-text opacity-60 text-sm" data-service="duration">${service.duration}</div>
                             </div>
                             <span class="px-3 py-1 rounded-full text-xs font-semibold theme-accent theme-text border border-red-600/30" data-service="category">${service.category}</span>
@@ -409,7 +413,7 @@
                 </div>
             `;
         }
-
+        // --- “How It Works” section generator ---
         function generateHowItWorksSection() {
             return `
                 <section class="py-16 px-4 theme-surface border-t border-red-600/20" data-section="how-it-works" id="how-it-works">
@@ -433,7 +437,7 @@
                 </section>
             `;
         }
-
+        // --- Footer generator ---
         function generateFooter() {
             return `
                 <footer class="theme-surface py-12 px-4 border-t border-red-600/20" data-section="footer">
@@ -492,10 +496,11 @@
         }
 
         // Theme management
+        // --- Theme initialization and toggle logic ---
         function initializeTheme() {
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = document.getElementById('themeIcon');
-            
+            // Updates CSS variables on theme change
             function updateTheme() {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
@@ -511,7 +516,7 @@
                 root.style.setProperty('--background', palette.background);
                 root.style.setProperty('--surface', palette.surface);
             }
-            
+            // Toggle between light/dark
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -525,8 +530,9 @@
         // Service inquiry functionality
         function handleInquiry(serviceId) {
             const service = SERVICES_DATA.find(s => s.id === parseInt(serviceId));
+            const inputFieldConfig = [];
             if (service) {
-                // Create inquiry modal content
+                // Create inquiry model content
                 const modalContent = `
                     <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" id="inquiryModal">
                         <div class="theme-surface rounded-lg p-8 max-w-md w-full mx-4 border border-red-600/30">
@@ -539,12 +545,18 @@
                             <div class="space-y-4 mb-6">
                                 <div>
                                     <label class="block theme-text font-semibold mb-2">Your Name</label>
-                                    <input type="text" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your name">
+                                    <input type="text" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your Name">
                                 </div>
                                 <div>
                                     <label class="block theme-text font-semibold mb-2">Email</label>
-                                    <input type="email" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your email">
+                                    <input type="email" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter your Email">
                                 </div>
+                                
+                               <div>
+                                    <label class="block theme-text font-semibold mb-2">Contact</label>
+                                    <input type="tel" pattern="\d{10}" class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none" placeholder="Enter Contact Number">
+                                </div>
+
                                 <div>
                                     <label class="block theme-text font-semibold mb-2">Project Details</label>
                                     <textarea class="w-full p-3 rounded-lg theme-bg theme-text border border-red-600/30 focus:border-red-600 outline-none h-24" placeholder="Describe your project requirements..."></textarea>
@@ -567,8 +579,9 @@
             }
         }
 
-        // Category filtering
+        // Category filtering logic
         function filterServices(category) {
+            // Toggles button states and filters visible service cards
             const serviceCards = document.querySelectorAll('.service-card');
             const categoryButtons = document.querySelectorAll('[data-action="filter-category"]');
             
@@ -593,7 +606,7 @@
             });
         }
 
-        // Event delegation for dynamic content
+        // Global event delegation for dynamic content
         function setupEventListeners() {
             document.addEventListener('click', (e) => {
                 const action = e.target.getAttribute('data-action');
@@ -643,6 +656,7 @@
 
         // Inline message system (instead of alerts)
         function showInlineMessage(message, type = 'info') {
+            // Creates temporary floating message box
             const messageDiv = document.createElement('div');
             messageDiv.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
                 type === 'success' ? 'bg-green-600 text-white' : 
@@ -666,11 +680,11 @@
             }, 5000);
         }
 
-        // Initialize application
+        // --- App initialization sequence ---
         function initializeApp() {
             const root = document.getElementById('root');
             
-            // Generate all content
+            // Render all main content
             root.innerHTML = `
                 ${generateHeader()}
                 <main>
@@ -689,5 +703,40 @@
         // Start the application when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ea75e5a2d37a07',t:'MTc2MDQ4MDM5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        (function(){
+            function c(){
+                var b = a.contentDocument || a.contentWindow.document;
+                if(b){
+                    var d = b.createElement('script');
+                    d.innerHTML = 
+                        "window.__CF$cv$params={r:'98ea75e5a2d37a07',t:'MTc2MDQ4MDM5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')
+                    [0].appendChild(d)
+                }
+            }
+            if(document.body){
+                var a = document.createElement('iframe');
+                    a.height = 1;
+                    a.width = 1;
+                    a.style.position = 'absolute';
+                    a.style.top = 0;
+                    a.style.left = 0;
+                    a.style.border = 'none';
+                    a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if('loading'!==document.readyState)c();
+                else if(window.addEventListener)
+                    document.addEventListener('DOMContentLoaded',c);
+                else{
+                    var e = document.onreadystatechange || function(){};
+                    document.onreadystatechange = function(b){
+                        e(b);'loading'!== document.readyState && (document.onreadystatechange = e,c())
+                    }
+                }
+            }
+        })
+        ();
+    </script>
+</body>
 </html>
